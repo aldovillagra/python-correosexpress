@@ -1,14 +1,14 @@
-ASM
+Correos express
 ===
 
-Python API ASM carrier.
+Python API Correos express carrier.
 
 Features
 --------
 
 - Services
 - Test connection
-- Create/Send shipments to ASM
+- Create/Send shipments to Correos express
 - Get label shipment in PDF
 
 Usage Examples
@@ -21,7 +21,7 @@ Services
 
 .. code-block:: python
 
-    from asm.utils import services
+    from correosexpress.utils import services
     services()
 
 Test connection
@@ -32,7 +32,7 @@ Test connection
     with API(username, debug) as asm_api:
         print asm_api.test_connection()
 
-Create/send shipment to ASM
+Create/send shipment to Correos express
 ---------------------------
 
 .. code-block:: python

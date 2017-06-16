@@ -1,5 +1,5 @@
 build
 dist
-asm.egg-info
+correosexpress.egg-info
 *~
 *.pyc

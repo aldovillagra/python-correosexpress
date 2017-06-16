@@ -1,24 +1,24 @@
 #!/usr/bin/env python
-#This file is part of asm. The COPYRIGHT file at the top level of
-#this repository contains the full copyright notices and license terms.
+# This file is part of asm. The COPYRIGHT file at the top level of
+# this repository contains the full copyright notices and license terms.
 
 import os
 from setuptools import setup, find_packages
 
-__version__ = '0.0.2'
+__version__ = '0.0.1'
+
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-setup(name='asm',
+setup(name='correosexpress',
         version=__version__,
-        author='Zikzakmedia SL',
-        author_email='zikzak@zikzakmedia.com',
-        url="https://www.zikzakmedia.com",
-        description="Python API ASM carrier",
+        author='comunitea',
+        author_email='info@comunitea.com',
+        url="http://comunitea.com/",
+        description="Python API Correos express carrier",
         long_description=read('README'),
-        download_url="https://github.com/Comunitea/python-asm",
-        package_data={'asm': ['template/*']},
+        download_url="https://github.com/Comunitea/python-correosexpress",
         packages=find_packages(),
         classifiers=[
             'Development Status :: 4 - Beta',
@@ -30,11 +30,8 @@ setup(name='asm',
             'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
             'Topic :: Software Development :: Libraries :: Python Modules',
             ],
-        install_requires=[
-            'genshi',
-            ],
+        install_requires=[],
         license='GPL-3',
         extras_require={
         },
-        # test_suite="asm.tests",
     )
