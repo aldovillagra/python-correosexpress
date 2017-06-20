@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
-#This file is part of correos express. The COPYRIGHT file at the top level of
-#this repository contains the full copyright notices and license terms.
+# This file is part of correos express. The COPYRIGHT file at the top level of
+# this repository contains the full copyright notices and license terms.
 from correosexpress.utils import correosexpress_url
-from xml.dom.minidom import parseString
 import requests
 from requests.auth import HTTPBasicAuth
-import os
 
 
 class API(object):
@@ -53,11 +51,22 @@ class API(object):
         Return JSON object
         """
         headers = {'Content-type': 'application/json'}
-        return requests.post(self.url, data=data, auth=HTTPBasicAuth(self.username, self.password), headers=headers, verify=False)
+        return requests.post(
+            self.url, data=data,
+            auth=HTTPBasicAuth(self.username, self.password),
+            headers=headers, verify=False)
 
     def test_connection(self):
         """
         Test connection to Correos express webservices
         Send XML to Correos express and return error send data
         """
-        raise NotImplementedError
+        headers = {'Content-type': 'application/json'}
+        resp = requests.post(
+            self.url, data='',
+            auth=HTTPBasicAuth(self.username, self.password),
+            headers=headers, verify=False)
+        if resp.status_code == 200:
+            return 'OK'
+        else:
+            return resp.text
