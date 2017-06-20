@@ -42,7 +42,7 @@ class API(object):
         return self
 
     def __exit__(self, type, value, traceback):
-        return self
+        pass
 
     def connect(self, data):
         """
