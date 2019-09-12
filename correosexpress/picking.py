@@ -107,9 +107,9 @@ class Picking(API):
             }))
         vals['listaBultos'] = listabultos
         result = self.connect(json.dumps(vals))
+        labels = []
         if result.json.get('codigoRetorno') == 0:
             reference = result.json.get('datosResultado')
-            labels = []
             for label in result.json.get('etiqueta'):
                 # hacemos doble decode porque la cadena
                 # viene codificada 2 veces :S

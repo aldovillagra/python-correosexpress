@@ -5,19 +5,20 @@
 import os
 from setuptools import setup, find_packages
 
-__version__ = '0.0.1'
+__version__ = '0.0.4'
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(name='correosexpress',
         version=__version__,
-        author='comunitea',
-        author_email='info@comunitea.com',
-        url="http://comunitea.com/",
+        author='Aldo A. Villagra B.',
+        author_email='aldovillagra@gmail.com',
+        url="http://www.linkedin.com/in/aldo-villagra-49546510/",
         description="Python API Correos express carrier",
-        long_description=read('README'),
+        long_description=long_description,
+        long_description_content_type="text/markdown",
         download_url="https://github.com/Comunitea/python-correosexpress",
         packages=find_packages(),
         classifiers=[

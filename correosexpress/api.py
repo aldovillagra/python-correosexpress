@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 # This file is part of correos express. The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-from correosexpress.utils import correosexpress_url
+from correosexpress.utils import correosexpress_url_envio
+from correosexpress.utils import correosexpress_url_etiqueta
+from correosexpress.utils import correosexpress_url_seguimiento
 import requests
 from requests.auth import HTTPBasicAuth
 
@@ -16,7 +18,7 @@ class API(object):
         'password',
     )
 
-    def __init__(self, username, password, debug=False):
+    def __init__(self, username, password, operation, debug=False):
         """
         This is the Base API class which other APIs have to subclass. By
         default the inherited classes also get the properties of this
@@ -31,8 +33,14 @@ class API(object):
 
         :param username: correos express API username
         :param password: correos express API password
+        :param operation: correos express API operation type => 'envio', 'etiqueta', 'seguimiento'
         """
-        self.url = correosexpress_url(debug)
+        if operation == 'envio':
+            self.url = correosexpress_url_envio(debug)
+        elif operation == 'etiqueta':
+            self.url = correosexpress_url_etiqueta(debug)
+        elif operation == 'seguimiento':
+            self.url = correosexpress_url_seguimiento(debug)
         self.username = username
         self.password = password
 
