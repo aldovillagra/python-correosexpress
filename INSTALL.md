@@ -16,7 +16,7 @@ directory where the archive was unpacked, and run:
 
     or
 
-    pip install git@github.com:aldovillagra/python-correosexpress.git#egg=correosexpress
+    pip install git+https://github.com/aldovillagra/python-correosexpress.git#egg=correosexpress
 
 Note that you may need administrator/root privileges for this step, as
 this command will by default attempt to install module to the Python
