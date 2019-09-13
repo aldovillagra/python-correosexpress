@@ -11,7 +11,8 @@ def correosexpress_url_envio(debug=False):
 
     """
     if debug:
-        return 'https://test.correosexpress.com/wspsc/apiRestGrabacionEnvio/json/grabacionEnvio'
+        # return 'https://test.correosexpress.com/wspsc/apiRestGrabacionEnvio/json/grabacionEnvio'
+        return 'https://www.correosexpress.com/wpsc/apiRestGrabacionEnvio/json/grabacionEnvio'
     else:
         return 'https://www.correosexpress.com/wpsc/apiRestGrabacionEnvio/json/grabacionEnvio'
 
