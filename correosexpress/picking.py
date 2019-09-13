@@ -116,7 +116,7 @@ class Picking(API):
                 labels.append(
                     decodestring(decodestring(label.get('etiqueta1'))))
         else:
-            return reference, labels, result.json.get('mensajeRetorno')
+            return reference, labels, result.json().get('mensajeRetorno')
         return reference, labels, error
 
     def label(self, data):
