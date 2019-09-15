@@ -114,7 +114,7 @@ class Picking(API):
                 # hacemos doble decode porque la cadena
                 # viene codificada 2 veces :S
                 labels.append(
-                    decodestring(decodestring(label.get('etiqueta1'))))
+                    decodestring(decodestring(label.get('etiqueta2'))))
         else:
             return reference, labels, result.json().get('mensajeRetorno')
         return reference, labels, error
