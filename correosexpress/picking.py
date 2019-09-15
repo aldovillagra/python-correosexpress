@@ -77,8 +77,8 @@ class Picking(API):
             'codDirecDestino': '',
             'password': data.get('password', ''),
             'listaInformacionAdicional':
-                [OrderedDict({'tipoEtiqueta': data.get('tipoEtiqueta', '1'),
-                              'etiquetaPDF': ''})],
+                [OrderedDict({'tipoEtiqueta': data.get('tipoEtiqueta', '2'),
+                              'etiquetaPDF': data.get('etiquetaPDF', 'N')})],
         })
         if not data.get('codDirecDestino', False):
             vals['nomDest'] = data.get('nomDest')[:40]
