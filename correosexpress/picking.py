@@ -90,7 +90,7 @@ class Picking(API):
             vals['pobDest'] = data.get('pobDest', '')[:50]
         listabultos = []
         orden = 0
-        for bulto in data.get('lista_bultos', []):
+        for bulto in data.get('listaBultos', []):
             orden += 1
             listabultos.append(OrderedDict({
                 'codUnico': bulto.get('codUnico', '')[:23],
