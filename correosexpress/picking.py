@@ -5,7 +5,7 @@ from correosexpress.api import API
 import datetime
 import json
 from collections import OrderedDict
-from base64 import decodestring
+from base64 import b64decode
 
 
 class Picking(API):
@@ -113,8 +113,8 @@ class Picking(API):
             for label in result.json().get('etiqueta'):
                 # hacemos doble decode porque la cadena
                 # viene codificada 2 veces :S
-                labels.append(
-                    decodestring(decodestring(label.get('etiqueta2'))))
+                decodificar1 = b64decode(label.get('etiqueta2'))
+                labels.append(decodificar1)
         else:
             return reference, labels, result.json().get('mensajeRetorno')
         return reference, labels, error
