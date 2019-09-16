@@ -113,8 +113,7 @@ class Picking(API):
             for label in result.json().get('etiqueta'):
                 # hacemos doble decode porque la cadena
                 # viene codificada 2 veces :S
-                decodificar1 = b64decode(label.get('etiqueta2'))
-                labels.append(decodificar1)
+                labels.append(label.get('etiqueta2'))
         else:
             return reference, labels, result.json().get('mensajeRetorno')
         return reference, labels, error
