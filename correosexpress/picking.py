@@ -113,9 +113,11 @@ class Picking(API):
         if result.json().get('codigoRetorno') == 0:
             reference = result.json().get('datosResultado')
             if data.get('tipoEtiqueta') == '1':
-                labels = decodestring(label.get('etiqueta1'))
+                for label in result.json().get('etiqueta'):
+                    labels = decodestring(label.get('etiqueta1'))
             elif data.get('tipoEtiqueta') == '2':
-                labels = label.get('etiqueta2')
+                for label in result.json().get('etiqueta'):
+                    labels = label.get('etiqueta2')
         else:
             return reference, labels, result.json().get('mensajeRetorno')
         return reference, labels, error
