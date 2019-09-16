@@ -6,6 +6,8 @@ import datetime
 import json
 from collections import OrderedDict
 from base64 import b64decode
+from base64 import decodestring
+
 
 
 class Picking(API):
@@ -77,8 +79,8 @@ class Picking(API):
             'codDirecDestino': '',
             'password': data.get('password', ''),
             'listaInformacionAdicional':
-                [OrderedDict({'tipoEtiqueta': data.get('tipoEtiqueta', '2'),
-                              'etiquetaPDF': data.get('etiquetaPDF', 'N')})],
+                [OrderedDict({'tipoEtiqueta': data.get('tipoEtiqueta', '1'),
+                              'etiquetaPDF': data.get('etiquetaPDF', '')})],
         })
         if not data.get('codDirecDestino', False):
             vals['nomDest'] = data.get('nomDest')[:40]
@@ -107,13 +109,13 @@ class Picking(API):
             }))
         vals['listaBultos'] = listabultos
         result = self.connect(json.dumps(vals))
-        labels = []
+        labels = None
         if result.json().get('codigoRetorno') == 0:
             reference = result.json().get('datosResultado')
-            for label in result.json().get('etiqueta'):
-                # hacemos doble decode porque la cadena
-                # viene codificada 2 veces :S
-                labels.append(label.get('etiqueta2'))
+            if data.get('tipoEtiqueta') == '1':
+                labels = decodestring(label.get('etiqueta1'))
+            elif data.get('tipoEtiqueta') == '2':
+                labels = label.get('etiqueta2')
         else:
             return reference, labels, result.json().get('mensajeRetorno')
         return reference, labels, error
