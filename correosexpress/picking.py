@@ -56,7 +56,7 @@ class Picking(API):
             'codPosNacDest': data.get('codPosNacDest'),
             'paisISODest': data.get('paisISODest', '')[:2],
             'codPosIntDest': data.get('codPosIntDest', '')[:7],
-            'contacDest': data.get('contacDest')[:50],
+            'contacDest': data.get('contacDest')[:40],
             'telefDest': data.get('telefDest')[:15],
             'emailDest': data.get('emailDest', '')[:50],
             'contacOtrs': data.get('contacOtrs', '')[:50],
