@@ -85,11 +85,11 @@ class Picking(API):
         if not data.get('codDirecDestino', False):
             vals['nomDest'] = data.get('nomDest')[:40]
             vals['dirDest'] = data.get('dirDest')[:50]
-            vals['pobDest'] = data.get('pobDest')[:50]
+            vals['pobDest'] = data.get('pobDest')[:40]
         else:
             vals['codDirecDestino'] = data.get('codDirecDestino')[7]
             vals['nomDest'] = data.get('nomDest', '')[:40]
-            vals['pobDest'] = data.get('pobDest', '')[:50]
+            vals['pobDest'] = data.get('pobDest', '')[:40]
         listabultos = []
         orden = 0
         for bulto in data.get('listaBultos', []):
