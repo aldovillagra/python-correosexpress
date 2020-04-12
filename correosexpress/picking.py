@@ -27,7 +27,7 @@ class Picking(API):
         label = None
         error = None
 
-        for k in data.keys():
+        for k in list(data.keys()):
             if data.get(k, '') is False:
                 data[k] = ''
         vals = OrderedDict({

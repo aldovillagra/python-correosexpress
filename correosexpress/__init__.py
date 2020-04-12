@@ -9,5 +9,5 @@ __all__ = [
     'Picking',
 ]
 
-from api import API
-from picking import Picking
+from .api import API
+from .picking import Picking
